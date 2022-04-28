@@ -1,4 +1,4 @@
-FROM python:3.8-alpine 
+FROM python:3.9-slim
 LABEL author="Luis Michaelis"
 
 LABEL \
@@ -9,7 +9,7 @@ LABEL \
     org.opencontainers.image.description='A Python 3.8 image for Pterodactyl'
     
 
-RUN addgroup -S container && adduser -S container -S container
+RUN useradd container
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
